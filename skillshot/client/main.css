@@ -67,9 +67,16 @@ footer {
   .carousel-caption {
     display: none;
   }
+
   #icon {
     max-width: 150px;
   }
+
+  .image {
+    width: 200;
+    height: auto;
+  }
+
   h4 {
     font-size: 1.7em;
   }

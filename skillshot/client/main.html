@@ -11,13 +11,16 @@
   <!-- End of Default to include -->
 
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-  <link rel="stylesheet" href="css">
+  <link rel="stylesheet" href="main.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  <script src="main.js"></script>
+
+</script>
 </head>
 
 <body>
-  <nav class="navbar navbar-inverse">
+  <nav class="navbar navbar-inverse navbar-fixed-top">
     <div class="container-fluid">
       <div class="navbar-header">
         <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavBar">
@@ -25,15 +28,17 @@
           <span class="icon-bar"></span>
           <span class="icon-bar"></span>
         </button>
-        <a class="navbar-brand" href="#"><img src="/images/skill.jpg"></a>
+        <a class="navbar-brand" id="icon" href="#"><img src="/images/skill.jpg"></a>
       </div>
       <div class="collapse navbar-collapse" id="myNavBar">
         <ul class="nav navbar-nav navbar-right">
           <li class="active"><a href="#">Home</a></li>
           <li><a href="#">About</a></li>
-          <li><a href="#">Login</a>{{> loginButtons}}</li>
-          <li><a href="#">Register</a></li>
-          <li><a href="#">Browse Projects</a></li>
+          {{#if currentUser}}
+            <li><a href="#">Browse Projects</a></li>
+            <li><a href="#">Create Project</a></li>
+          {{/if}}
+          <li>{{> loginButtons}}</li>
         </ul>
     </div>
   </div>
@@ -80,15 +85,15 @@
     <h2>What We're Using</h2>
     <div class="row">
       <div class="col-sm-4">
-        <img src="/images/html5.png" id="icon">
+        <img src="/images/html5.png" width="200">
         <h4>HTML5</h4>
       </div>
       <div class="col-sm-4">
-        <img src="/images/bootstrap.png" id="icon">
+        <img src="/images/bootstrap.png" width="200">
         <h4>Bootstrap</h4>
       </div>
       <div class="col-sm-4">
-        <img src="/images/css3.png" id="icon">
+        <img src="/images/css3.png" width="200">
         <h4>CSS3</h4>
       </div>
     </div>
