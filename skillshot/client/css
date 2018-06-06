@@ -74,8 +74,3 @@ footer {
     font-size: 1.7em;
   }
 }
-
-.resize {
-  width: 400px;
-  height: auto;
-}
