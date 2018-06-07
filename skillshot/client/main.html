@@ -28,17 +28,18 @@
           <span class="icon-bar"></span>
           <span class="icon-bar"></span>
         </button>
-        <a class="navbar-brand" id="icon" href="#"><img src="/images/skill.jpg"></a>
+            <a class="navbar-brand" id="icon" href="#"><img src="/images/skill.jpg"></a>
       </div>
       <div class="collapse navbar-collapse" id="myNavBar">
         <ul class="nav navbar-nav navbar-right">
           <li class="active"><a href="#">Home</a></li>
           <li><a href="#">About</a></li>
           {{#if currentUser}}
-            <li><a href="#">Browse Projects</a></li>
-            <li><a href="#">Create Project</a></li>
+            <li><a href="browse.html">Browse Projects</a></li>
+            <li><a href="create.html">Create Project</a></li>
+            <li><a href="profile.html">Profile</a></li>
           {{/if}}
-          <li>{{> loginButtons}}</li>
+          <li>{{> loginButtons align="right"}}</li>
         </ul>
     </div>
   </div>
