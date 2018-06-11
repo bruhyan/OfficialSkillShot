@@ -14,6 +14,7 @@ Accounts.ui.config({
 
 Accounts.sendResetPasswordEmail(userId, [email], [extraTokenData]);
 
+//Retrive Project data from database
 Template.body.helpers({
   projects() {
     return Projects.find({});
