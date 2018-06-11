@@ -16,7 +16,7 @@
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
   <script src="main.js"></script>
 
-</script>
+
 </head>
 
 <body>
@@ -32,19 +32,28 @@
       </div>
       <div class="collapse navbar-collapse" id="myNavBar">
         <ul class="nav navbar-nav navbar-right">
-          <li class="active"><a href="#">Home</a></li>
-          <li><a href="#">About</a></li>
+          <li class="active"><a href="/">Home</a></li>
+          <li><a href="about">About</a></li>
           {{#if currentUser}}
-            <li><a href="browse.html">Browse Projects</a></li>
-            <li><a href="create.html">Create Project</a></li>
-            <li><a href="profile.html">Profile</a></li>
+            <li><a href="browse">Browse Projects</a></li>
+            <li><a href="create">Create Project</a></li>
+            <li><a href="profile">Profile</a></li>
           {{/if}}
           <li>{{> loginButtons align="right"}}</li>
         </ul>
     </div>
   </div>
   </nav>
+</body>
 
+  <template name="main">
+    <main>
+      {{Template.dynamic template=main}}
+    </main>
+  </template>
+
+
+<template name="layout">
   <div id="myCarousel" class="carousel slide" data-ride="carousel">
     <ol class="carousel-indicators">
       <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
@@ -166,5 +175,4 @@
   </div>
 </footer>
 </div>
-
-</body>
+</template>
