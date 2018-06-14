@@ -8,27 +8,27 @@ FlowRouter.route("/", {
 FlowRouter.route("/about", {
   name: "about",
   action() {
-    BlazeLayout.render({ main: "about" });
+    BlazeLayout.render("about");
   }
 });
 
 FlowRouter.route("/browse", {
   name: "browse",
   action() {
-    BlazeLayout.render({ main: "browse" });
+    BlazeLayout.render("browse");
   }
 });
 
 FlowRouter.route("/create", {
   name: "create",
   action() {
-    BlazeLayout.render("create.html");
+    BlazeLayout.render("create");
   }
 });
 
 FlowRouter.route("/profile", {
   name: "profile",
   action() {
-    BlazeLayout.render("profile.html");
+    BlazeLayout.render("profile");
   }
 });
