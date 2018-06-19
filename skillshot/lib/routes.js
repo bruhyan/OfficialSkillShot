@@ -1,14 +1,14 @@
 FlowRouter.route("/", {
-  name: "layout",
+  name: "Mainlayout",
   action() {
-    BlazeLayout.render("layout");
+    BlazeLayout.render("Mainlayout", { main: "home" });
   }
 });
 
 FlowRouter.route("/about", {
   name: "about",
   action() {
-    BlazeLayout.render("about");
+    BlazeLayout.render("Mainlayout", { main: "about" });
   }
 });
 
@@ -29,6 +29,6 @@ FlowRouter.route("/create", {
 FlowRouter.route("/profile", {
   name: "profile",
   action() {
-    BlazeLayout.render("profile");
+    BlazeLayout.render("Mainlayout", { main: "profile" });
   }
 });
