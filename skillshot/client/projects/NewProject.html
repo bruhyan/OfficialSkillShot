@@ -1,5 +1,6 @@
 <template name="NewProject">
   <div class="new-project-container">
-    {{> quickForm collection="Projects" id="insertProjectForm" type="insert" class="new-project-form"}}
+    {{> quickForm collection="Projects" id="insertProjectForm" type="insert" class="new-project-form"
+omitFields="leader,createdAt"}}
   </div>
 </template>

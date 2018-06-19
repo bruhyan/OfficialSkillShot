@@ -12,8 +12,6 @@ Accounts.ui.config({
   passwordSignupFields: "USERNAME_AND_EMAIL"
 });
 
-Accounts.sendResetPasswordEmail(userId, [email], [extraTokenData]);
-
 //Retrive Project data from database
 Template.body.helpers({
   projects() {
