@@ -2,6 +2,12 @@
 import SimpleSchema from 'simpl-schema'
 Projects = new Meteor.Collection("projects");
 
+Projects.allow({
+  insert: function(userId, doc) {
+    return !!userId;
+  }
+});
+
 ProjectSchema = new SimpleSchema({
   name: {
     type: String,

@@ -22,7 +22,7 @@ accounts-password@1.5.1
 
 kadira:flow-router
 kadira:blaze-layout
-aldeed:collection2
-aldeed:autoform
 aldeed:simple-schema
 underscore
+aldeed:autoform
+aldeed:collection2
