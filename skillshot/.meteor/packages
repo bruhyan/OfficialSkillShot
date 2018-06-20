@@ -22,9 +22,12 @@ accounts-password@1.5.1
 
 kadira:flow-router
 kadira:blaze-layout
-aldeed:collection2
-aldeed:autoform
 aldeed:simple-schema
 underscore
+<<<<<<< HEAD
 msavin:mongol
 session
+=======
+aldeed:autoform
+aldeed:collection2
+>>>>>>> 338edcf78b687bc88288297d5359f59d0b260690

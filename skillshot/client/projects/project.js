@@ -1,6 +1,10 @@
 //This is the collection for all the projects that are submitted by user
+<<<<<<< HEAD
 import SimpleSchema from "simpl-schema";
 
+=======
+import SimpleSchema from 'simpl-schema'
+>>>>>>> 338edcf78b687bc88288297d5359f59d0b260690
 Projects = new Meteor.Collection("projects");
 
 Projects.allow({
