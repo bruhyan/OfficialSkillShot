@@ -1,5 +1,5 @@
 //This is the collection for all the projects that are submitted by user
-
+import SimpleSchema from 'simpl-schema'
 Projects = new Meteor.Collection("projects");
 
 ProjectSchema = new SimpleSchema({
