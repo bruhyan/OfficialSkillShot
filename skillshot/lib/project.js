@@ -3,7 +3,7 @@ import { Mongo } from "meteor/mongo";
 import SimpleSchema from "simpl-schema";
 SimpleSchema.extendOptions(["autoform"]);
 
-Projects = new Meteor.Collection("projects");
+Projects = new Mongo.Collection("projects");
 
 Projects.allow({
   insert: function(userId, doc) {
@@ -20,9 +20,18 @@ ProjectSchema = new SimpleSchema({
     type: String,
     label: "Project Description"
   },
-  requirement: {
-    type: String,
-    label: "Skill Requirement"
+  requirements: {
+    type: Array
+  },
+  "requirements.$": Object,
+  "requirements.$.skill_name": String,
+  "requirements.$.level": String,
+  "requirements.$.years_experience": String,
+
+  inProject: {
+    type: Boolean,
+    defaultValue: false,
+    optional: true
   },
   leader: {
     type: String,
