@@ -1,5 +1,7 @@
 //This is the collection for all the projects that are submitted by user
+import { Mongo } from "meteor/mongo";
 import SimpleSchema from "simpl-schema";
+SimpleSchema.extendOptions(["autoform"]);
 
 Projects = new Meteor.Collection("projects");
 
