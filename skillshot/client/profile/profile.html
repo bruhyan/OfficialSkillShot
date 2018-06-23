@@ -1,0 +1,39 @@
+<template name="profile">
+  {{#if currentUser}}
+  <!--profile-->
+  <div id="profile-wrap">
+    <center>
+      <img src="/images/github.svg" class="profile-img">
+      <h1 class="username">{{username}}</h1>
+      <!--Supposed to display username here, but since we still using the prototype user registration
+      we do not have username yet, only after we switch to custom login/registration-->
+      <h3>{{email}}</h3>
+      <div class="ratings" id="">
+        <img src="/images/laugh.png" class="profile-smiley" id="laugh">
+        <img src="/images/frown.png" class="profile-smiley" id="frown">
+      </div>
+      <div class="score" id="">
+        <h3 class="count green block">12</h3>
+        <h3 class="count red block">3</h3>
+      </div>
+    </center>
+  </div>
+  <!--End profile-->
+
+  
+  {{#each userProjects}}
+  <!-- list of projects -->
+  <div class="project">
+    <div class="row">
+      <div class=".col-sm-6 .col-md-5 /col-lg-6" id="info">
+        <h1 class="project-title">ProjectTitle</h1>
+      </div>
+    </div>
+  </div>
+  <!--end list-->
+  {{else}}
+  <h1>No projects to display.</h1>
+  {{/each}}
+  {{/if}}
+
+</template>
