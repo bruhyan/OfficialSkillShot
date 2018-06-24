@@ -1,6 +1,5 @@
 import { Accounts } from "meteor/accounts-base";
 import { Template } from "meteor/templating";
-import { Notes } from "../lib/collection.js";
 
 import "./main.html";
 
