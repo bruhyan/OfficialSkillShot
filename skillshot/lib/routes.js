@@ -37,3 +37,11 @@ FlowRouter.route("/profile", {
     BlazeLayout.render("Mainlayout", { main: "profile" });
   }
 });
+
+FlowRouter.route("/browse/:id", {
+  name: "browse",
+  action() {
+    GAnalytics.pageview();
+    BlazeLayout.render("Mainlayout", { main: "browseSingle" });
+  }
+});

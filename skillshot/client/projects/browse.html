@@ -2,9 +2,13 @@
 <template name="browse">
   <main>
     <div style="padding-top : 100px; padding-bottom : 50px; padding-left: 150px">
+      {{#if Template.subscriptionsReady}}
         {{#each projects}}
           {{> Project}}
         {{/each}}
+      {{else}}
+        <p>Loading...</p>
+      {{/if}}
     </div>
   </main>
 </template>
