@@ -20,7 +20,6 @@ Template.profile.helpers({
     var username = Meteor.user().username;
     var userId = Meteor.userId();
     var userProjects = Projects.find({userId: userId}, {sort : {createdAt: -1}});
-    //grab the userId, find all the projects that belong to this userId
     return userProjects;
   }
 });
