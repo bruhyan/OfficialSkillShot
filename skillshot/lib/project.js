@@ -8,6 +8,9 @@ Projects = new Mongo.Collection("projects");
 Projects.allow({
   insert: function(userId, doc) {
     return !!userId;
+  },
+  update: function(userId, doc) {
+    return !!userId;
   }
 });
 
@@ -46,6 +49,16 @@ ProjectSchema = new SimpleSchema({
     autoValue: function() {
       return new Date();
     }
+  }
+});
+
+Meteor.methods({
+  toggleMenuItem: function(id, currentState) {
+    Projects.update(id, {
+      $set: {
+        inProject: !currentState
+      }
+    });
   }
 });
 

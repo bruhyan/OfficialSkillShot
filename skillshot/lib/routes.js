@@ -1,3 +1,15 @@
+Accounts.onLogout(function() {
+  FlowRouter.go("Mainlayout");
+});
+
+FlowRouter.triggers.enter([
+  function(context, redirect) {
+    if (!Meteor.userId()) {
+      FlowRouter.go("Mainlayout");
+    }
+  }
+]);
+
 FlowRouter.route("/", {
   name: "Mainlayout",
   action() {
@@ -10,7 +22,7 @@ FlowRouter.route("/about", {
   name: "about",
   action() {
     GAnalytics.pageview();
-    BlazeLayout.render("Mainlayout", { main: "about" });
+    BlazeLayout.render("Mainlayout", { main: "about_us" });
   }
 });
 
@@ -39,9 +51,17 @@ FlowRouter.route("/profile", {
 });
 
 FlowRouter.route("/project/:id", {
-  name: "browse",
+  name: "project",
   action() {
     GAnalytics.pageview();
     BlazeLayout.render("Mainlayout", { main: "projectSingle" });
+  }
+});
+
+FlowRouter.route("/current", {
+  name: "current",
+  action() {
+    GAnalytics.pageview();
+    BlazeLayout.render("Mainlayout", { main: "currrent" });
   }
 });
