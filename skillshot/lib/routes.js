@@ -18,14 +18,6 @@ FlowRouter.route("/", {
   }
 });
 
-FlowRouter.route("/about", {
-  name: "about",
-  action() {
-    GAnalytics.pageview();
-    BlazeLayout.render("Mainlayout", { main: "about_us" });
-  }
-});
-
 FlowRouter.route("/browse", {
   name: "browse",
   action() {
