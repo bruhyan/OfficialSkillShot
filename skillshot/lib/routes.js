@@ -38,10 +38,10 @@ FlowRouter.route("/profile", {
   }
 });
 
-FlowRouter.route("/browse/:id", {
+FlowRouter.route("/project/:id", {
   name: "browse",
   action() {
     GAnalytics.pageview();
-    BlazeLayout.render("Mainlayout", { main: "browseSingle" });
+    BlazeLayout.render("Mainlayout", { main: "projectSingle" });
   }
 });
