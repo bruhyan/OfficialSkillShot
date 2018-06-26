@@ -1,5 +1,3 @@
-//Meteor.subscribe("projects");
-
 Template.browse.onCreated(function() {
   var self = this;
   self.autorun(function() {
@@ -10,5 +8,11 @@ Template.browse.onCreated(function() {
 Template.browse.helpers({
   projects: () => {
     return Projects.find({});
+  }
+});
+
+Template.Project.events({
+  "click .toggle-menu": function() {
+    Meteor.call("toggleMenuItem", this._id, this.inProject);
   }
 });
