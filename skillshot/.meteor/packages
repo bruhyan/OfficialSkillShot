@@ -32,3 +32,6 @@ datariot:ganalytics
 themeteorchef:bert
 twbs:bootstrap
 check
+easy:search
+easysearch:autosuggest
+easysearch:elasticsearch

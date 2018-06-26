@@ -6,6 +6,22 @@ FlowRouter.route("/", {
   }
 });
 
+FlowRouter.route("/home", {
+  name: "home",
+  action() {
+    GAnalytics.pageview();
+    BlazeLayout.render("Mainlayout", { main: "home" });
+  }
+});
+
+FlowRouter.route("/search", {
+  name: "search",
+  action() {
+    GAnalytics.pageview();
+    BlazeLayout.render("Mainlayout", { main: "search" });
+  }
+});
+
 FlowRouter.route("/about", {
   name: "about",
   action() {
