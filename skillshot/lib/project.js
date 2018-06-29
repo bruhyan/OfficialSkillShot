@@ -59,6 +59,9 @@ Meteor.methods({
         inProject: !currentState
       }
     });
+  },
+  deleteProject: function(id) {
+    Projects.remove(id);
   }
 });
 
@@ -71,10 +74,14 @@ ProjectsIndex = new EasySearch.Index({
       return { createdAt: -1 };
     },
     selector: function(searchObject, options, aggregation) {
-      let selector = this.defaultConfiguration().selector(searchObject, options, aggregation),
-      categoryFilter = options.search.props.categoryFilter;
+      let selector = this.defaultConfiguration().selector(
+          searchObject,
+          options,
+          aggregation
+        ),
+        categoryFilter = options.search.props.categoryFilter;
 
-      if(_.isString(categoryFilter) && !_.isEmpty(categoryFilter)) {
+      if (_.isString(categoryFilter) && !_.isEmpty(categoryFilter)) {
         selector.category = categoryFilter;
       }
 
@@ -82,7 +89,7 @@ ProjectsIndex = new EasySearch.Index({
     }
   }),
   collection: Projects,
-  fields: ['ProjectTitle'],
+  fields: ["ProjectTitle"],
   defaultSearchOptions: {
     limit: 8
   },

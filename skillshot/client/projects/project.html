@@ -3,15 +3,19 @@
     <h3>{{name}}</h3>
     <p>{{description}}</p>
     <p>
-      {{#each requirements}}
-        <div class="requirement">Skill type: {{skill_name}} || Level Req: {{level}} || Experience: {{years_experience}} year(s)</div>
-      {{/each}}
+      <ol>
+        {{#each requirements}}
+          <li>Skill type: {{skill_name}} || Level Req: {{level}} || Experience: {{years_experience}} year(s)</li>
+        {{/each}}
+      </ol>
     </p>
     <a href="/project/{{_id}}">View More</a>
+    <i class="fa fa-trash"></i>
     {{#if inProject}}
       <button class="btn-deny toggle-menu">Remove</button>
     {{else}}
       <button class="btn-primary toggle-menu">Add To Profile</button>
     {{/if}}
+    {{> quickForm collection="Projects" id=updateProjectId type="update" doc=this autosave=true}}
   </article>
 </template>
