@@ -1,7 +1,7 @@
 <template name="Project">
   <article class="project {{#if inProject}}in-project{{/if}}" style="padding-left : 200px">
-    <h3>{{name}}</h3>
-    <p>{{description}}</p>
+  <h3>Project Name: {{name}} <i class="far fa-edit"> </i><i class="far fa-trash-alt"></i></h3>
+    <p>Project Description: {{description}}</p>
     <p>
       <ol>
         {{#each requirements}}
@@ -10,12 +10,13 @@
       </ol>
     </p>
     <a href="/project/{{_id}}">View More</a>
-    <i class="fa fa-trash"></i>
     {{#if inProject}}
       <button class="btn-deny toggle-menu">Remove</button>
     {{else}}
       <button class="btn-primary toggle-menu">Add To Profile</button>
     {{/if}}
-    {{> quickForm collection="Projects" id=updateProjectId type="update" doc=this autosave=true}}
+    {{#if $.Session.get "editMode"}}
+      {{> quickForm collection="Projects" id=updateProjectId type="update" doc=this autosave=true}}
+    {{/if}}
   </article>
 </template>

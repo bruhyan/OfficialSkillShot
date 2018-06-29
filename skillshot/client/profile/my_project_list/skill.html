@@ -3,6 +3,7 @@
   <div>
     <h1 class="page-title">My Projects</h1>
     <ul class="project-list">
+    {{#if Template.subscriptionsReady}}
       {{#each project}}
         <h3><strong>Project Name: {{name}}</strong></h3>
         <h4><u>Missing skills</u></h4>
@@ -12,6 +13,10 @@
       {{else}}
         <p>No <a href="/profile">current projects</a> or missing skills required</p>
       {{/each}}
+    {{else}}
+      <i class="fa fa-spinner fa-pulse fa-3x fa-fw"></i>
+      <span class="sr-only">Loading...</span>
+    {{/if}}
 <!-- Maybe add an unsubscribe button to remove project easily -->
     </ul>
   </div>

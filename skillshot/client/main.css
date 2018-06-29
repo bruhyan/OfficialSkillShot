@@ -93,3 +93,35 @@ footer {
   background: yellow;
   colour: #fff;
 }
+
+.fa-edit {
+  cursor: pointer;
+  position: relative;
+  right: 0;
+  font-size: 1.6em;
+  display: block;
+  padding: 20px;
+  color: black;
+  trans() {
+    &:hover {
+      color: red;
+      opacity: 0.6;
+    }
+  }
+}
+
+.fa-trash-alt {
+  cursor: pointer;
+  position: absolute;
+  right: 0;
+  font-size: 1.6em;
+  display: block;
+  padding: 20px;
+  color: black;
+  trans() {
+    &:hover {
+      color: red;
+      opacity: 0.6;
+    }
+  }
+}
