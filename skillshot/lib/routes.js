@@ -26,6 +26,14 @@ FlowRouter.route("/browse", {
   }
 });
 
+FlowRouter.route("/search", {
+  name: "search",
+  action() {
+    GAnalytics.pageview();
+    BlazeLayout.render("Mainlayout", { main: "search" });
+  }
+});
+
 FlowRouter.route("/create", {
   name: "create",
   action() {

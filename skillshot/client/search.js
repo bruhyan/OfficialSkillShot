@@ -7,7 +7,7 @@ Template.search.helpers({
   },
   selectedName: function() {
     var project = ProjectsIndex.config.mongoCollection.findOne({__originalId: Session.get("selectedProject") });
-    return project && project.projectName;
+    return project && project.name;
   },
   index: function() {
     return ProjectsIndex;

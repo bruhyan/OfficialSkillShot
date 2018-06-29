@@ -89,7 +89,7 @@ ProjectsIndex = new EasySearch.Index({
     }
   }),
   collection: Projects,
-  fields: ["ProjectTitle"],
+  fields: ["name"],
   defaultSearchOptions: {
     limit: 8
   },
