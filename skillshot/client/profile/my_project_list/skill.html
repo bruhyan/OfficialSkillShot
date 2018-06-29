@@ -1,0 +1,19 @@
+<template name="skill">
+<main>
+  <div>
+    <h1 class="page-title">My Projects</h1>
+    <ul class="project-list">
+      {{#each project}}
+        <h3><strong>Project Name: {{name}}</strong></h3>
+        <h4><u>Missing skills</u></h4>
+        {{#each requirements}}
+          <li>Skill name: {{skill_name}}</li>
+        {{/each}}
+      {{else}}
+        <p>No <a href="/profile">current projects</a> or missing skills required</p>
+      {{/each}}
+<!-- Maybe add an unsubscribe button to remove project easily -->
+    </ul>
+  </div>
+</main>
+</template>
