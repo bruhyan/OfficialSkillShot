@@ -6,8 +6,10 @@
         {{#each projects}}
           <h3>Project Name: {{name}}</h3>
           <p>About: {{description}}</p>
+        {{else}}
+        <h3>No current project (<a href="/browse">join a project</a>)</h3>
         {{/each}}
-      {{else}}
+        {{else}}
         <p>Loading...</p>
       {{/if}}
     </div>
