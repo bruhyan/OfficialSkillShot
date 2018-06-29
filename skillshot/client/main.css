@@ -83,24 +83,3 @@ footer {
     font-size: 1.7em;
   }
 }
-
-.nope {
-  background: yellow;
-  .btn-primary {
-    display: block;
-  }
-  .btn-deny {
-    display: none;
-  }
-}
-
-.in-project {
-  background: teal;
-  color: #fff;
-  .btn-deny {
-    display: block;
-  }
-  .btn-primary {
-    display: none;
-  }
-}

@@ -53,7 +53,6 @@ FlowRouter.route("/project/:id", {
 FlowRouter.route("/current", {
   name: "current",
   action() {
-    GAnalytics.pageview();
-    BlazeLayout.render("Mainlayout", { main: "currrent" });
+    BlazeLayout.render("Mainlayout", { main: "current" });
   }
 });

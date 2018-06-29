@@ -1,15 +1,17 @@
 <template name="Project">
-  <article class="project {{#if inProject}}in-project{{else}}nope{{/if}}" style="padding-left : 200px">
+  <article class="project" style="padding-left : 200px">
     <h3>{{name}}</h3>
     <p>{{description}}</p>
     <p>
       {{#each requirements}}
-        <span class="requirement">{{skill_name}} - {{level}} - {{years_experience}}</span>
+        <div class="requirement">Skill type: {{skill_name}} || Level Req: {{level}} || Experience: {{years_experience}} year(s)</div>
       {{/each}}
     </p>
     <a href="/project/{{_id}}">View More</a>
-<!--If cannot resolve button issue just have generic button Add/Remove-->
-  <button class="btn-primary toggle-menu">Add To Profile</button>
-  <button class="btn-deny toggle-menu">Remove</button>
+    {{#if inProject}}
+      <button class="btn-deny toggle-menu">Remove</button>
+    {{else}}
+      <button class="btn-primary toggle-menu">Add To Profile</button>
+    {{/if}}
   </article>
 </template>
