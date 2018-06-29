@@ -32,4 +32,6 @@ datariot:ganalytics
 themeteorchef:bert
 twbs:bootstrap
 check
-gwendall:auth-client-callbacks
+easy:search
+easysearch:autosuggest
+easysearch:elasticsearch
