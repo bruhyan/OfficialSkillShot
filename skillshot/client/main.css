@@ -57,6 +57,11 @@ footer {
   text-decoration: none;
 }
 
+.page-title {
+  padding-top: 100px;
+  padding-left: 150px;
+}
+
 @media (max-width: 900px) {
   .fa {
     font-size: 20px;

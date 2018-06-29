@@ -56,3 +56,10 @@ FlowRouter.route("/current", {
     BlazeLayout.render("Mainlayout", { main: "current" });
   }
 });
+
+FlowRouter.route("/skill_list", {
+  name: "skill-list",
+  action() {
+    BlazeLayout.render("Mainlayout", { main: "skill" });
+  }
+});
