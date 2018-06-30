@@ -5,9 +5,14 @@ Template.skill.onCreated(function() {
   });
 });
 
-//copy code from profile.js to filter out the projects by user
 Template.skill.helpers({
-  project: () => {
-    return Projects.find({ inProject: true });
+  userProjects: function() {
+    var username = Meteor.user().username;
+    var userId = Meteor.userId();
+    var userProjects = Projects.find(
+      { leader: userId },
+      { sort: { createdAt: -1 } }
+    );
+    return userProjects;
   }
 });
