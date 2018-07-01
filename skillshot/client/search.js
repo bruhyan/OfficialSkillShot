@@ -25,6 +25,8 @@ Template.User.helpers({
   selected: function() {
     return Session.equals("selectedProject", this.__originalId) ? "selected" : '';
   },
+
+
 });
 
 Template.User.events({

@@ -58,15 +58,15 @@
 
 <template name="User">
   <li class="user black {{selected}}" id="user-link">
-    <span class="name">{{projectName}}</span>
+    <span class="name">{{name}}</span>
     {{#if selected}}
     <div class="projectInfo">
       <div>
-        <span class="posy blue">{{projectPost}}</span>
+        <span class="posy blue">Project Description: {{description}}</span>
       </div>
       <br>
       <div>
-        <span class="author">Author: {{leader}}</span>
+        <span class="author">Author: {{username}}</span>
       </div>
 
     </div>
