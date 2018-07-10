@@ -10,7 +10,7 @@
     </div>
 
     {{#EasySearch.IfInputEmpty index=index}}
-    <div class="padded examples black">Text under searchbar</div>
+    <div class="padded examples black">Enter project title keywords</div>
 
     {{else}}
     {{#if resultsCount}}
@@ -58,18 +58,28 @@
 
 <template name="User">
   <li class="user black {{selected}}" id="user-link">
-    <span class="name">{{name}}</span>
-    {{#if selected}}
+    <span class="name"><b>{{name}}</b></span>
+    {{#if selected}} <!-- if clicked on, display info -->
     <div class="projectInfo">
       <div>
-        <span class="posy blue">Project Description: {{description}}</span>
+        <span class="posy blue"> <b>Project Description:</b> {{description}}</span>
       </div>
       <br>
       <div>
-        <span class="author">Author: {{username}}</span>
+        <span class="author"><b>Author:</b> {{author}}</span>
       </div>
 
     </div>
     {{/if}}
+
+    {{#if inProject}}
+      <button class="btn-deny toggle-menu">Remove</button>
+    {{else}}
+      <button class="btn-primary toggle-menu">Add To Profile</button>
+    {{/if}}
+    {{#if $.Session.get "editMode"}}
+      {{> quickForm collection="Projects" id=updateProjectId type="update" doc=this autosave=true}}
+    {{/if}}
+    
 </li>
 </template>

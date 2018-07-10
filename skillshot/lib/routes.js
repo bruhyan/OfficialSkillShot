@@ -34,6 +34,14 @@ FlowRouter.route("/search", {
   }
 });
 
+FlowRouter.route("/searchUser", {
+  name: "searchUser",
+  action() {
+    GAnalytics.pageview();
+    BlazeLayout.render("Mainlayout", { main: "searchUser" });
+  }
+});
+
 FlowRouter.route("/create", {
   name: "create",
   action() {

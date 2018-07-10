@@ -19,6 +19,17 @@ ProjectSchema = new SimpleSchema({
     type: String,
     label: "Project Name"
   },
+
+  author: {
+    type: String,
+    label: "Project Leader"
+  },
+
+  email: {
+    type: String,
+    label: "Email"
+  },
+
   description: {
     type: String,
     label: "Project Description"
@@ -36,6 +47,7 @@ ProjectSchema = new SimpleSchema({
     defaultValue: false,
     optional: true
   },
+
   leader: {
     type: String,
     label: "Leader",

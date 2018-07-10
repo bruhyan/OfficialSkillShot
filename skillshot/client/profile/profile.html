@@ -11,8 +11,8 @@
         <img src="/images/frown.png" class="profile-smiley" id="frown">
       </div>
       <div class="score" id="">
-        <i class="fas fa-medal fa-2x"></i><h3 class="count green block">12</h3>
-        <h3 class="count red block">3</h3>
+        <i class="fas fa-medal fa-2x"></i><h3 class="count green block"></h3>
+        <h3 class="count red block"></h3>
       </div>
     </center>
   </div>
@@ -24,20 +24,7 @@
 <div>
   <a href="skill_list">Ongoing Projects By Me</a>
 </div>
-  {{#each userProjects}}
-  <!-- list of projects -->
-  <div class="projectList-wrapper">
-    <div class="row">
-      <div class=".col-sm-6 .col-md-5 /col-lg-6" id="info">
-        <h1 class="project-title">Project Title: {{name}}</h1>
-        <h3 class="project-description">Project Description: {{description}}</h3>
-      </div>
-    </div>
-  </div>
-  <!--end list-->
-  {{else}}
-  <h1>No projects to display.</h1>
-  {{/each}}
+
   {{/if}}
 
 </template>
