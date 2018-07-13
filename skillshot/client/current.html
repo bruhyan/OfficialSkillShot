@@ -1,13 +1,17 @@
 <template name="current">
   <main>
-    <div style="padding-top : 100px; padding-left: 150px">
-      <h1>My Subscribed Projects</h1>
+    <div class="container" style="padding-top : 100px; padding-left: 150px">
+      <h1 style="padding-left : 200px; padding-bottom: 50px">My Subscribed Projects</h1>
       {{#if Template.subscriptionsReady}}
-        {{#each projects}}
-          {{> ProjectItem}}
-        {{else}}
-        <h3>No current project: <a href="/browse">join a project</a></h3>
-        {{/each}}
+        <table class="table table-striped">
+          {{#each projects}}
+          <tbody>
+            {{> ProjectItem}}
+          </tbody>
+          {{else}}
+            <h3>No current project: <a href="/browse">join a project</a></h3>
+          {{/each}}
+        </table>
         {{else}}
         <p>Loading...</p>
       {{/if}}
@@ -16,8 +20,22 @@
 </template>
 
 <template name="ProjectItem">
-  <div class="project-item">
-    <h3>Project Name: {{name}}</h3>
-    <p>About: {{description}}</p>
-  </div>
+  <article style="padding-left : 200px">
+  <h3>Project Name: {{name}}</h3>
+  {{#if editMode}}
+    {{> quickForm collection="Projects" id=updateProjectId type="update" doc=this autosave=true}}
+  {{else}}
+    <p>Project Description: {{description}}</p>
+    <p>Project Leader: {{author}} </p>
+    <p>Contact: {{email}} </p>
+    <p>
+      <ol>
+        {{#each requirements}}
+          <li>Skill type: {{skill_name}} || Level Req: {{level}} || Experience: {{years_experience}} year(s)</li>
+        {{/each}}
+      </ol>
+    </p>
+    <button class="btn-deny toggle-menu">Remove</button>
+  {{/if}}
+  </article>
 </template>
