@@ -1,3 +1,13 @@
+import { Session } from "meteor/session";
+
+Template.search.onCreated(function() {
+  var self = this;
+  self.autorun(function() {
+    self.subscribe("projects");
+  });
+});
+
+
 Template.search.helpers({
   inputAttributes: function() {
     return {'class': 'easy-search-input', 'placeholder': 'Start Searching'};
@@ -18,8 +28,16 @@ Template.search.helpers({
   showMore: function() {
     return false;
   },
-  renderTmpl: () => Template.renderTemplate
+  renderTmpl: () => Template.renderTemplate,
+
+  //integrating browse function
+  projects: () => {
+    return Projects.find({});
+  },
+
 });
+
+Session.set("editMode", false);
 
 Template.User.helpers({
   selected: function() {

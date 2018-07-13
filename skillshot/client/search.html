@@ -66,7 +66,7 @@
       </div>
       <br>
       <div>
-        <span class="author"><b>Author:</b> {{author}}</span>
+        <span class="author"><b>Project Leader:</b> {{author}}</span>
       </div>
 
     </div>
@@ -80,6 +80,6 @@
     {{#if $.Session.get "editMode"}}
       {{> quickForm collection="Projects" id=updateProjectId type="update" doc=this autosave=true}}
     {{/if}}
-    
+
 </li>
 </template>
