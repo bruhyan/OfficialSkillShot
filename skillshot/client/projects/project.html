@@ -1,6 +1,9 @@
 <template name="Project">
   <article class="project {{#if inProject}}in-project{{/if}}" style="padding-left : 200px">
   <h3>Project Name: {{name}} <i class="far fa-edit"> </i><i class="far fa-trash-alt"></i></h3>
+  {{#if editMode}}
+    {{> quickForm collection="Projects" id=updateProjectId type="update" doc=this autosave=true}}
+  {{else}}
     <p>Project Description: {{description}}</p>
     <p>Project Leader: {{author}} </p>
     <p>Contact: {{email}} </p>
@@ -12,13 +15,11 @@
       </ol>
     </p>
     <a href="/project/{{_id}}">View More</a>
-    {{#if inProject}}
-      <button class="btn-deny toggle-menu">Remove</button>
-    {{else}}
-      <button class="btn-primary toggle-menu">Add To Profile</button>
-    {{/if}}
-    {{#if $.Session.get "editMode"}}
-      {{> quickForm collection="Projects" id=updateProjectId type="update" doc=this autosave=true}}
-    {{/if}}
+  {{/if}}
+  {{#if inProject}}
+    <button class="btn-deny toggle-menu">Remove</button>
+  {{else}}
+    <button class="btn-primary toggle-menu">Add To Profile</button>
+  {{/if}}
   </article>
 </template>
