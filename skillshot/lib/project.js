@@ -22,7 +22,10 @@ ProjectSchema = new SimpleSchema({
 
   email: {
     type: String,
-    label: "Email"
+    label: "Email",
+    autoValue: function() {
+      return Meteor.user().emails[0].address;
+    }
   },
 
   description: {
