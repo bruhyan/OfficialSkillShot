@@ -1,5 +1,5 @@
 Meteor.publish("projects", function() {
-  return Projects.find({ leader: this.userId });
+  return Projects.find({});
 });
 
 Meteor.publish("singleProject", function(id) {

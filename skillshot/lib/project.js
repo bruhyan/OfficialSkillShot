@@ -20,11 +20,6 @@ ProjectSchema = new SimpleSchema({
     label: "Project Name"
   },
 
-  author: {
-    type: String,
-    label: "Project Leader"
-  },
-
   email: {
     type: String,
     label: "Email"
@@ -52,7 +47,7 @@ ProjectSchema = new SimpleSchema({
     type: String,
     label: "Leader",
     autoValue: function() {
-      return this.userId;
+      return Meteor.user().username;
     }
   },
   createdAt: {
