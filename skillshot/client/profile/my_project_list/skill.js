@@ -10,7 +10,7 @@ Template.skill.helpers({
     var username = Meteor.user().username;
     var userId = Meteor.userId();
     var userProjects = Projects.find(
-      { leader: userId },
+      { leader: Meteor.user().username },
       { sort: { createdAt: -1 } }
     );
     return userProjects;
