@@ -57,7 +57,7 @@
 </template>
 
 <template name="User">
-  <li class="user black {{selected}}" id="user-link">
+  <li class="user black {{selected}} {{#if inProject}}in-project{{/if}}" id="user-link">
     <span class="name"><b>{{name}}</b></span>
     {{#if selected}} <!-- if clicked on, display info -->
     <div class="projectInfo">
@@ -66,7 +66,7 @@
       </div>
       <br>
       <div>
-        <span class="author"><b>Project Leader:</b> {{author}}</span>
+        <span class="author"><b>Project Leader:</b> {{leader}}</span>
       </div>
 
     </div>
