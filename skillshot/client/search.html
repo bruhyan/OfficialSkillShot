@@ -58,18 +58,21 @@
 
 <template name="User">
   <li class="user black {{selected}} {{#if inProject}}in-project{{/if}}" id="user-link">
-    <span class="name"><b>{{name}}</b></span>
-    {{#if selected}} <!-- if clicked on, display info -->
-    <div class="projectInfo">
-      <div>
-        <span class="posy blue"> <b>Project Description:</b> {{description}}</span>
-      </div>
-      <br>
-      <div>
-        <span class="author"><b>Project Leader:</b> {{leader}}</span>
-      </div>
-
-    </div>
+    <span class="name"><b>Project Name: {{name}}</b></span>
+    {{#if editMode}}
+      {{> quickForm collection="Projects" id=updateProjectId type="update" doc=this autosave=true}}
+    {{else}}
+      {{#if selected}} <!-- if clicked on, display info -->
+        <div class="projectInfo">
+          <div>
+            <span class="posy blue"> <b>Project Description:</b> {{description}}</span>
+          </div>
+          <br>
+          <div>
+            <span class="author"><b>Project Leader:</b> {{leader}}</span>
+          </div>
+        </div>
+      {{/if}}
     {{/if}}
 
     {{#if inProject}}
@@ -77,9 +80,5 @@
     {{else}}
       <button class="btn-primary toggle-menu">Add To Profile</button>
     {{/if}}
-    {{#if $.Session.get "editMode"}}
-      {{> quickForm collection="Projects" id=updateProjectId type="update" doc=this autosave=true}}
-    {{/if}}
-
-</li>
+  </li>
 </template>

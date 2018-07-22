@@ -39,13 +39,22 @@ Template.search.helpers({
 
 Session.set("editMode", false);
 
+Template.User.onCreated(function() {
+  var self = this;
+  self.autorun(function() {
+    self.subscribe("projects");
+  });
+});
+
 Template.User.helpers({
   selected: function() {
     return Session.equals("selectedProject", this.__originalId)
       ? "selected"
       : "";
   },
-
+  projects: () => {
+    return Projects.find({});
+  },
   //integrating browse functions
   updateProjectId: function() {
     return this._id;
@@ -58,7 +67,8 @@ Template.User.events({
   },
 
   "click .toggle-menu": function() {
-    Meteor.call("toggleMenuItem", this._id, this.inProject);
+    Session.set("selectedProject", this.__originalId);
+    Meteor.call("toggleMenuItem", this.__originalId, this.inProject);
     if (this.inProject == false) {
       Bert.alert(
         "Project added to profile subscriptions",
@@ -72,8 +82,8 @@ Template.User.events({
         "growl-top-right"
       );
     }
-  },
-
+  }
+  /*
   //integrating browse functions:
   "click .fa-trash-alt": function() {
     Meteor.call("deleteProject", this._id);
@@ -82,4 +92,5 @@ Template.User.events({
   "click .fa-edit": function() {
     Session.set("editMode", !Session.get("editMode"));
   }
+*/
 });
