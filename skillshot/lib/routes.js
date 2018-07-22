@@ -58,7 +58,7 @@ FlowRouter.route("/profile", {
   }
 });
 
-FlowRouter.route("/project/:id", {
+FlowRouter.route("/project_:id", {
   name: "project",
   action() {
     GAnalytics.pageview();

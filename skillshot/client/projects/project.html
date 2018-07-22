@@ -1,20 +1,24 @@
 <template name="Project">
-  <article class="project {{#if inProject}}in-project{{/if}}" style="padding-left : 200px">
-  <h3>Project Name: {{name}} <i class="far fa-edit"> </i><i class="far fa-trash-alt"></i></h3>
+  <article class="project {{#if inProject}}in-project{{/if}}" style="padding-top: 50px; padding-left : 200px">
+  {{#if isOwner author}}
+    <h3><strong>Project Name: {{name}}</strong> <i class="far fa-edit"> </i><i class="far fa-trash-alt"></i></h3>
+  {{else}}
+    <h3 style="padding-bottom:10px"><strong>Project Name: {{name}}</strong></h3>
+  {{/if}}
   {{#if editMode}}
     {{> quickForm collection="Projects" id=updateProjectId type="update" doc=this autosave=true}}
   {{else}}
-    <p>Project Description: {{description}}</p>
+    <p>Description: {{description}}</p>
     <p>Project Leader: {{leader}} </p>
     <p>Email: {{email}} </p>
-    <p>
+    <p style="padding-bottom: 10px;">
       <ol>
         {{#each requirements}}
           <li>Skill type: {{skill_name}} || Level Req: {{level}} || Experience: {{years_experience}} year(s)</li>
         {{/each}}
       </ol>
     </p>
-    <a href="/project/{{_id}}">View More</a>
+  <a href="/project_{{_id}}">View More</a>
   {{/if}}
   {{#if inProject}}
     <button class="btn-deny toggle-menu">Remove</button>
