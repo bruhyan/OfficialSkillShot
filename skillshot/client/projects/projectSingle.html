@@ -1,7 +1,35 @@
 <template name="projectSingle">
   <main>
     <div class="single" style="padding-top : 100px; padding-bottom : 50px; padding-left: 150px">
-        <h1>{{project.name}}</h1>
+        <h1>Project Title: {{project.name}}</h1>
+        <h3>Project Leader: {{project.leader}}</h3>
+        <h3>Project Story: {{project.description}}</h3>
+        <ol>
+          <h3>People We Are Looking For: </h3>
+          {{#each project.requirements}}
+            <li>Skill type: {{skill_name}} || Level Req: {{level}} || Experience: {{years_experience}} year(s)</li>
+          {{/each}}
+        </ol>
+
+    </div>
+
+    <div class="commentList" style="padding-top : 100px; padding-bottom : 50px; padding-left: 150px">
+      {{#if Template.subscriptionsReady}}
+        {{#if currentUser}}
+          <h3>{{> AddComment}}</h3>
+          {{else}}
+          <h2 class="text-center">You need to login to comment</h2>
+        {{/if}}
+      {{/if}}
+
+    </div>
+
+    <div class="commentForm" style="padding-top : 100px; padding-bottom : 50px; padding-left: 150px">
+      <ul class="list-group">
+        {{#each comments}}
+        {{>commentsSchema}}
+        {{/each}}
+      </ul>
     </div>
   </main>
 </template>

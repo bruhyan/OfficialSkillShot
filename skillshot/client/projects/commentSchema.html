@@ -1,0 +1,9 @@
+<template name="commentsSchema">
+  <li class="list-unstyled" style= "border-top: 1px solid #000;">Author: {{Author}}</li>
+  <li class="list-unstyled">Message: {{Message}}</li>
+  <li class="list-unstyled">Submitted At: {{CreatedAt}}</li>
+
+  {{#if commentDeleteRight}}
+  <li class="btn btn-danger" id="deleteComment">Delete Comment</li>
+  {{/if}}
+</template>
