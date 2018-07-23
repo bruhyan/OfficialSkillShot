@@ -23,6 +23,9 @@ Template.Project.helpers({
   },
   editMode: function() {
     return Template.instance().editMode.get();
+  },
+  isOwner: function(author_id) {
+    return author_id == Meteor.userId();
   }
 });
 
@@ -46,7 +49,7 @@ Template.Project.events({
   "click .fa-edit": function(event, template) {
     template.editMode.set(!template.editMode.get());
   },
-  "click .fa-trash-alt": function() {
+  "click .fa-trash-alt": function(template) {
     Meteor.call("deleteProject", this._id);
     Bert.alert("Project Deleted", "danger", "growl-top-right");
   }

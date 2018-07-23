@@ -53,6 +53,15 @@ ProjectSchema = new SimpleSchema({
       return Meteor.user().username;
     }
   },
+
+  author: {
+    type: String,
+    label: "LeaderID",
+    autoValue: function() {
+      return this.userId;
+    }
+  },
+
   createdAt: {
     type: Date,
     label: "Created At",
