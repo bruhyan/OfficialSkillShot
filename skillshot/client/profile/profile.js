@@ -3,9 +3,17 @@ Template.profile.onCreated(function() {
   self.autorun(function() {
     self.subscribe("projects");
   });
+  Meteor.subscribe("userInfo");
 });
 
 Template.profile.helpers({
+  userInfo: () => {
+    var currUserId = Meteor.userId();
+    return UserInfo.find({
+      user : currUserId
+    });
+  },
+
   email: function() {
     if (!Meteor.user()) {
       Bert.alert(
@@ -18,6 +26,7 @@ Template.profile.helpers({
       return Meteor.user().emails[0].address;
     }
   },
+
   username: function() {
     if (!Meteor.user()) {
       Bert.alert(
@@ -39,6 +48,22 @@ Template.profile.helpers({
       { sort: { createdAt: -1 } }
     );
     return userProjects;
+  },
+
+  hasInfo: function() { //checks if user already had created userInfo
+    var userId = Meteor.userId();
+    console.log(userId);
+    var exist = UserInfo.find({
+      user: userId
+    });
+    console.log(exist);
+    var test = exist.count();
+    console.log(test);
+    if(test == 1) {
+      return true;
+    }else {
+      return false;
+    }
   }
 
 });

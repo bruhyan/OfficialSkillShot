@@ -1,0 +1,10 @@
+<template name="UserInfo">
+  <header><b>About Me!</b></header>
+  <li class="list-unstyled">{{status}}</li>
+  <li class="list-unstyled">{{title}}</li>
+    {{#each mySkills}}
+    <li>{{skill_name}}</li>
+    <li>{{level}}</li>
+    <li>{{years_experience}}</li>
+    {{/each}}
+</template>

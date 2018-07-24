@@ -23,3 +23,10 @@ Meteor.publish("userData", function() {
 Meteor.publish('comments', function() {
   return Comments.find();
 });
+
+Meteor.publish('userInfo', function() {
+  var userId = Meteor.userId();
+  return UserInfo.find({
+    user : userId
+  });
+});

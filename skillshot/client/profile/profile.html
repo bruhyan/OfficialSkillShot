@@ -16,6 +16,20 @@
       </div>
     </center>
   </div>
+
+  <div id="userInfoView">
+    <center>
+      {{#each userInfo}}
+      {{> UserInfo}}
+      {{/each}}
+
+      {{#if hasInfo}}
+        already has info, update?
+      {{else}}
+        {{> userInfoView}}
+      {{/if}}
+    </center>
+  </div>
   <!--End profile-->
 
 <div style="padding-top : 20px; padding-left: 150px">
@@ -24,6 +38,9 @@
 <div style="padding-top : 20px; padding-bottom : 50px; padding-left: 150px">
   <a href="skill_list">Ongoing Projects By Me</a>
 </div>
+
+
+
 
   {{/if}}
 
