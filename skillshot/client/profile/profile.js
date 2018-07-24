@@ -67,3 +67,9 @@ Template.profile.helpers({
   }
 
 });
+
+Template.profile.events({
+  'click .editProfile' : function() {
+    FlowRouter.go("NewUserInfo");
+  }
+});

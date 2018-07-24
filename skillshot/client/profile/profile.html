@@ -6,28 +6,19 @@
       <img src="/images/github.svg" class="profile-img">
       <h1 class="username">{{username}}</h1>
       <h3>{{email}}</h3>
-      <div class="ratings" id="">
-        <img src="/images/laugh.png" class="profile-smiley" id="laugh">
-        <img src="/images/frown.png" class="profile-smiley" id="frown">
-      </div>
-      <div class="score" id="">
-        <i class="fas fa-medal fa-2x"></i><h3 class="count green block"></h3>
-        <h3 class="count red block"></h3>
-      </div>
-    </center>
-  </div>
-
-  <div id="userInfoView">
-    <center>
       {{#each userInfo}}
-      {{> UserInfo}}
+        {{> UserInfo}}
       {{/each}}
-
-      {{#if hasInfo}}
-        already has info, update?
-      {{else}}
-        {{> userInfoView}}
-      {{/if}}
+      <div id="userInfoView">
+        <center>
+          {{#if hasInfo}}
+          <button type="button" class="btn btn-success updateProfile">Edit profile</button>
+          {{else}}
+          <p>Hi there! Looks Like you have to set up your profile information.</p>
+          <button type="button" class="btn btn-success editProfile">Edit profile</button>
+          {{/if}}
+        </center>
+      </div>
     </center>
   </div>
   <!--End profile-->

@@ -6,7 +6,7 @@
     <h3 style="padding-bottom:10px"><strong>Project Name: {{name}}</strong></h3>
   {{/if}}
   {{#if editMode}}
-    {{> quickForm collection="Projects" id=updateProjectId type="update" doc=this autosave=true}}
+    {{> quickForm collection="Projects" id=updateProjectId type="update" doc=this autosave=true omitFields="author,email,inProject,leader,createdAt"}}
   {{else}}
     <p>Description: {{description}}</p>
     <p>Project Leader: {{leader}} </p>
