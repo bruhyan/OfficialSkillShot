@@ -39,6 +39,22 @@ UserInfoSchema = new SimpleSchema({
       return this.userId;
     }
   },
+
+  username: {
+    type: String,
+    label: "username",
+    autoValue: function() {
+      return Meteor.user().username;
+    }
+  },
+
+  email: {
+    type: String,
+    label: "email",
+    autoValue: function() {
+      return Meteor.user().emails[0].address;
+    }
+  }
 })
 
 Meteor.methods({

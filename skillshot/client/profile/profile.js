@@ -4,6 +4,7 @@ Template.profile.onCreated(function() {
     self.subscribe("projects");
   });
   Meteor.subscribe("userInfo");
+  this.editMode = new ReactiveVar(false);
 });
 
 Template.profile.helpers({
@@ -64,6 +65,16 @@ Template.profile.helpers({
     }else {
       return false;
     }
+  },
+
+  updateUserInfoId: function() {
+    return this._id;
+  },
+  editMode: function() {
+    return Template.instance().editMode.get();
+  },
+  isOwner: function(user) {
+    return user == Meteor.userId();
   }
 
 });
@@ -71,5 +82,10 @@ Template.profile.helpers({
 Template.profile.events({
   'click .editProfile' : function() {
     FlowRouter.go("NewUserInfo");
+  },
+
+  'click .updateProfile' : function(event, template) {
+    template.editMode.set(!template.editMode.get());
+    console.log(template.editMode);
   }
 });

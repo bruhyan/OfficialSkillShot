@@ -17,6 +17,10 @@
           <p>Hi there! Looks Like you have to set up your profile information.</p>
           <button type="button" class="btn btn-success editProfile">Edit profile</button>
           {{/if}}
+
+          {{#if editMode}}
+          {{> UpdateUserInfo}}
+          {{/if}}
         </center>
       </div>
     </center>
