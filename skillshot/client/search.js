@@ -62,7 +62,7 @@ Template.User.helpers({
 });
 
 Template.User.events({
-  click: function() {
+  'click': function() {
     Session.set("selectedProject", this.__originalId);
   },
 
