@@ -9,7 +9,8 @@ Template.browse.onCreated(function() {
 
 Template.browse.helpers({
   projects: () => {
-    return Projects.find({});
+    var userId = Meteor.userId();
+    return Projects.find({author: userId}, {sort: {createdAt: -1} });
   }
 });
 

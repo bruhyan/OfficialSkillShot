@@ -1,19 +1,60 @@
 <template name="projectSingle">
   <main>
-    <div class="single" style="padding-top : 100px; padding-bottom : 50px; padding-left: 150px">
-        <h1>Project Title: {{project.name}}</h1>
-        <h3>Project Leader: {{project.leader}}</h3>
-        <h3>Project Story: {{project.description}}</h3>
-        <ol>
-          <h3>People We Are Looking For: </h3>
-          {{#each project.requirements}}
-            <li>Skill type: {{skill_name}} || Level Req: {{level}} || Experience: {{years_experience}} year(s)</li>
+    <table class="project  table table-light table-bordered table-hover table-condensed" style="width: 1000px; margin-top : 100px; margin-bottom: 100px; margin-left: auto; margin-right: auto">
+      <thead class="thead-light">
+        <tr>
+          <th colspan="3">
+    <h4>Project Name: {{project.name}}</h4>
+    </th>
+    <tr>
+      <th style="width: 30%">Description: </th>
+      <td style="width: 70%">{{project.description}}</td>
+    </tr>
+
+    <tr>
+      <th>Project Leader: </th>
+    <td>{{project.leader}}</td>
+    </tr>
+
+    <tr>
+      <th>Email:</th>
+      <td>{{project.email}}</td>
+    </tr>
+
+    <tr>
+      <th colspan="3">
+        <table class="table" style="margin-top : 20px">
+        <thead class="table-info">
+          <tr>
+            <th>Skill type</th>
+            <th>Level Req</th>
+            <th>Experience (year(s))</th>
+          </tr>
+        </thead>
+        {{#each project.requirements}}
+          <tr>
+            <td>{{skill_name}}</td>
+            <td>{{level}}</td>
+            <td>{{years_experience}}</td>
+          </tr>
+        {{/each}}
+      </table>
+    </th>
+  </tr>
+      </tr>
+      </thead>
+      </table>
+
+      <div class="commentForm" style="padding-bottom : 50px; width: 1000px; margin-left: auto; margin-right: auto">
+        <ul class="list-group">
+          {{#each comments}}
+            {{>commentsSchema}}
           {{/each}}
-        </ol>
+        </ul>
+      </div>
 
-    </div>
 
-    <div class="commentList" style="padding-top : 100px; padding-bottom : 50px; padding-left: 150px">
+    <div class="commentList" style="padding-bottom : 50px; width: 1000px; margin-left: auto; margin-right: auto">
       {{#if Template.subscriptionsReady}}
         {{#if currentUser}}
           <h3>{{> AddComment}}</h3>
@@ -24,12 +65,6 @@
 
     </div>
 
-    <div class="commentForm" style="padding-top : 100px; padding-bottom : 50px; padding-left: 150px">
-      <ul class="list-group">
-        {{#each comments}}
-          {{>commentsSchema}}
-        {{/each}}
-      </ul>
-    </div>
+
   </main>
 </template>

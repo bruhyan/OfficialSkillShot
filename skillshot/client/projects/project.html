@@ -1,5 +1,5 @@
 <template name="Project">
-  <table class="project {{#if inProject}}in-project{{/if}} table table-light table-bordered table-hover table-condensed" style="margin-bottom : 100px">
+  <table class="project  table table-light table-bordered table-hover table-condensed" style="margin-bottom : 100px">
     <thead class="thead-light">
       <tr>
         {{#if isOwner author}}
@@ -92,9 +92,9 @@
       <a href="/project_{{_id}}">View More</a>
       <br><br>
       {{#if inProject}}
-        <button class="btn-deny toggle-menu bg-primary" style="color: #ffffff">Remove</button>
+        <button class="btn-deny toggle-menu bg-primary" style="color: #ffffff">Unsubscribe</button>
       {{else}}
-        <button class="btn-primary toggle-menu">Add To Profile</button>
+        <button class="btn-primary toggle-menu">Subscribe</button>
       {{/if}}
     </th>
   </tr>

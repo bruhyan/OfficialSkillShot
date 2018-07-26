@@ -77,13 +77,14 @@
           </div>
           <br>
         </div>
+        {{#if inProject}}
+          <button class="btn-deny toggle-menu bg-warning">Unsubscribe</button>
+        {{else}}
+          <button class="btn-primary toggle-menu">Subscribe</button>
+        {{/if}}
       {{/if}}
     {{/if}}
 
-    {{#if inProject}}
-      <button class="btn-deny toggle-menu bg-warning">Remove</button>
-    {{else}}
-      <button class="btn-primary toggle-menu">Add To Profile</button>
-    {{/if}}
+
   </li>
 </template>
