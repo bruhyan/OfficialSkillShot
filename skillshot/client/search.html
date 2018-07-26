@@ -73,7 +73,7 @@
           </div>
           <br>
           <div>
-            <a href="/project_{{_id}}">View More</a>
+            <a href="/project_{{this.__originalId}}"><strong>View More</strong></a>
           </div>
           <br>
         </div>
@@ -81,7 +81,7 @@
     {{/if}}
 
     {{#if inProject}}
-      <button class="btn-deny toggle-menu">Remove</button>
+      <button class="btn-deny toggle-menu bg-warning">Remove</button>
     {{else}}
       <button class="btn-primary toggle-menu">Add To Profile</button>
     {{/if}}
