@@ -89,6 +89,11 @@ footer {
   }
 }
 
+background {
+  background-size: cover;
+  background-attachment: fixed;
+}
+
 .project.in-project {
   background: yellow;
   colour: #fff;

@@ -1,15 +1,19 @@
 <!--have to extract data from database and present it here-->
 <template name="browse">
   <main>
-    <div style="padding-top : 100px; padding-bottom : 50px; padding-left: 150px">
-      {{#if Template.subscriptionsReady}}
-        {{#each projects}}
-          {{> Project}}
-        {{/each}}
-      {{else}}
-        <i class="fa fa-spinner fa-pulse fa-3x fa-fw"></i>
-        <span class="sr-only">Loading...</span>
-      {{/if}}
-    </div>
+<!--https://belindamccarthy.co.uk/wp-content/uploads/2014/01/new-background-for-website-2013-amended.jpg-->
+    <body background= "http://d2a2wjuuf1c30f.cloudfront.net/product_photos/55222733/180955660_original.jpg" style="background-size: cover; background-attachment:fixed">
+      <div style="padding-top : 100px; padding-bottom : 50px; padding-left: 200px; padding-right: 200px">
+        <h1 class="bg-primary" style="text-align:center; margin-bottom: 50px">All Listed Projects</h1>
+        {{#if Template.subscriptionsReady}}
+          {{#each projects}}
+            {{> Project}}
+          {{/each}}
+        {{else}}
+          <i class="fa fa-spinner fa-pulse fa-3x fa-fw"></i>
+          <span class="sr-only">Loading...</span>
+        {{/if}}
+      </div>
+    </body>
   </main>
 </template>

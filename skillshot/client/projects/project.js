@@ -49,7 +49,7 @@ Template.Project.events({
   "click .fa-edit": function(event, template) {
     template.editMode.set(!template.editMode.get());
   },
-  "click .fa-trash-alt": function(template) {
+  "click .delete-project": function(template) {
     Meteor.call("deleteProject", this._id);
     Bert.alert("Project Deleted", "danger", "growl-top-right");
   }

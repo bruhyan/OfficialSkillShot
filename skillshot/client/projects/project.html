@@ -1,29 +1,103 @@
 <template name="Project">
-  <article class="project {{#if inProject}}in-project{{/if}}" style="padding-top: 50px; padding-left : 200px">
-  {{#if isOwner author}}
-    <h3><strong>Project Name: {{name}}</strong> <i class="far fa-edit"> </i><i class="far fa-trash-alt"></i></h3>
-  {{else}}
-    <h3 style="padding-bottom:10px"><strong>Project Name: {{name}}</strong></h3>
-  {{/if}}
-  {{#if editMode}}
-    {{> quickForm collection="Projects" id=updateProjectId type="update" doc=this autosave=true}}
-  {{else}}
-    <p>Description: {{description}}</p>
-    <p>Project Leader: {{leader}} </p>
-    <p>Email: {{email}} </p>
-    <p style="padding-bottom: 10px;">
-      <ol>
+  <table class="project {{#if inProject}}in-project{{/if}} table table-light table-bordered table-hover table-condensed" style="margin-bottom : 100px">
+    <thead class="thead-light">
+      <tr>
+        {{#if isOwner author}}
+          <th colspan="1">
+            <h4>Project Name: </h4>
+          </th>
+          <th>
+            <div class="d-flex ">
+              <h5 class="mr-auto p-2">{{name}}</h5>
+              <i class="far fa-edit p-2 pr-5"></i>
+
+              <!-- Button trigger modal -->
+              <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#exampleModal">
+                Delete Project
+              </button>
+
+              <!-- Modal -->
+              <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                <div class="modal-dialog" role="document">
+                  <div class="modal-content">
+                    <div class="modal-header">
+                      <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+                      <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                      </button>
+                    </div>
+                    <div class="modal-body">
+                      Are you sure you want to delete this project? Once you delete it you cannot retrieve it back.
+                    </div>
+                    <div class="modal-footer">
+                      <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                      <button type="button" class="btn btn-primary delete-project" data-dismiss="modal">Delete</button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </th>
+
+        {{else}}
+          <th colspan="3">
+            <h4>Project Name: {{name}}</h4>
+          </th>
+        {{/if}}
+      </tr>
+    </thead>
+
+    {{#if editMode}}
+      {{> quickForm collection="Projects" id=updateProjectId type="update" doc=this autosave=true}}
+    {{else}}
+
+    <tr>
+      <th style="width: 30%">Description: </th>
+      <td style="width: 70%">{{description}}</td>
+    </tr>
+
+    <tr>
+      <th>Project Leader: </th>
+    <td>{{leader}}</td>
+    </tr>
+
+    <tr>
+      <th>Email:</th>
+      <td>{{email}}</td>
+    </tr>
+
+    <tr>
+      <th colspan="3">
+        <table class="table" style="margin-top : 20px">
+        <thead class="table-info">
+          <tr>
+            <th>Skill type</th>
+            <th>Level Req</th>
+            <th>Experience (year(s))</th>
+          </tr>
+        </thead>
         {{#each requirements}}
-          <li>Skill type: {{skill_name}} || Level Req: {{level}} || Experience: {{years_experience}} year(s)</li>
+          <tr>
+            <td>{{skill_name}}</td>
+            <td>{{level}}</td>
+            <td>{{years_experience}}</td>
+          </tr>
         {{/each}}
-      </ol>
-    </p>
-  <a href="/project_{{_id}}">View More</a>
+      </table>
+    </th>
+  </tr>
+
+  <tr>
+    <th class="bg-light" colspan="3">
+      <a href="/project_{{_id}}">View More</a>
+      <br><br>
+      {{#if inProject}}
+        <button class="btn-deny toggle-menu bg-primary" style="color: #ffffff">Remove</button>
+      {{else}}
+        <button class="btn-primary toggle-menu">Add To Profile</button>
+      {{/if}}
+    </th>
+  </tr>
   {{/if}}
-  {{#if inProject}}
-    <button class="btn-deny toggle-menu">Remove</button>
-  {{else}}
-    <button class="btn-primary toggle-menu">Add To Profile</button>
-  {{/if}}
-  </article>
+  </table>
 </template>
