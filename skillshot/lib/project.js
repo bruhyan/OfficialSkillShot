@@ -32,6 +32,7 @@ ProjectSchema = new SimpleSchema({
     type: String,
     label: "Project Description"
   },
+
   requirements: {
     type: Array,
     label: "Requirements"

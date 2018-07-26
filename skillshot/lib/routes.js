@@ -18,6 +18,14 @@ FlowRouter.route("/", {
   }
 });
 
+FlowRouter.route("/NewUserInfo", {
+  name: "NewUserInfo",
+  action() {
+    GAnalytics.pageview();
+    BlazeLayout.render("Mainlayout", { main: "NewUserInfo" });
+  }
+});
+
 FlowRouter.route("/browse", {
   name: "browse",
   action() {
