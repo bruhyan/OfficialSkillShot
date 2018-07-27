@@ -48,7 +48,7 @@ Template.User.onCreated(function() {
 
 Template.User.helpers({
   selected: function() {
-    return Session.equals("selectedProject", this.__originalId)
+    return Session.equals("selectedProject", this.__originalId) //orignial was this.__originalId
       ? "selected"
       : "";
   },
@@ -67,8 +67,8 @@ Template.User.events({
   },
 
   "click .toggle-menu": function() {
-    Session.set("selectedProject", this.__originalId);
-    Meteor.call("toggleMenuItem", this.__originalId, this.inProject);
+    //Session.set("selectedProject", this.__originalId);
+    Meteor.call("toggleMenuItem", this._id, this.inProject);
     if (this.inProject == false) {
       Bert.alert(
         "Project added to profile subscriptions",
